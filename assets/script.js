@@ -42,10 +42,13 @@
 
 
 // Assignment Code
-
-
+var isCapitol = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" 
+var isLowercase = "abcdefghijklmnopqrstuvwxyz"
+var isNumeric = "0123456789"
+var specialChar = "!@#$%^&*()"
 
 var generateBtn = document.querySelector("#generate");
+
 
 // Write password to the #password input
 function writePassword() {
