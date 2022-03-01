@@ -11,16 +11,16 @@ function writePassword() {
   var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var lowerChars = "abcdefghijklmnopqrstuvwxyz";
   var numberChars = "0123456789";
-  var passwordLength = "12-128"
+  var passwordLength = "8-128"
   var specialChars = "!@#$%^&*()";
   var selectedChars = "";
 
   function generatePassword() {
     var password="";
-    passwordLength = prompt("Please enter the number of characters you want in your password. It must be more than 12 and less than 128.")
-    if(+passwordLength<12 || +passwordLength > 128){
-      alert("You must select a number between 12 and 128");
-      return;
+    passwordLength = prompt("Please enter the number of characters you want in your password. It must be more than 8 and less than 128.")
+    if(+passwordLength<8 || +passwordLength > 128){
+      alert("You must select a number between 8 and 128");
+      return generatePassword;
   }
     upperChars = confirm("Do you want uppercases in your password?");
     lowerChars = confirm("Do you want lowercases in your password?");
@@ -46,13 +46,12 @@ function writePassword() {
 
     //Math.floor(Math.random()*passwordLength)
 
-    for(i=0;i<passwordLength;i++){
-      selectedChars[Math.floor(Math.random()*passwordLength)]
+    for(i = 0; i < passwordLength; i++) {
+      selectedChars = Math.floor(Math.random()*passwordLength);
     }
 
-    return password
-}
-
- 
+    return password;
+};
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+  generateBtn.addEventListener("click", writePassword)
+
