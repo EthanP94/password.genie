@@ -1,56 +1,5 @@
-// user clicks button then prompt pops up asking for number of characters
+var generateBtn = document.querySelector("#generate")
 
-// hold all inputs from confirms in seperate variables
-
-// Do i need to hold any information?
-// create array with special characters
-// create array with numeric, 
-// create array lowercase
-// create array upper case
-
-// create empty array that holds all the true confirmed options in it.
-// push all character that user wants into this array. This creates the pool of characters to select from
-// once the pool is complete, then randomly select characters based on the number of characters the user selcted in the beggining.
-
-// generate password function
-// var numberOfChar = validatecharLength(prompts for number of characters) 
-// var isSpecialCharaters = confirm pops up asking if they would like specialial characters
-// var isCapitol = confirm for capital, 
-// var isLowercase = lowercase confirm, 
-// var isNumeric = numeric characters confirm
-
-// validate number of chars is between 8 and 128
-// validator function send it users input
-
-// function validateCharLength (numberOfChars) {
-//   if (numberOfChars < 8 || numberOfChars > 128) {
-//     alert("Please enter a number between 8 and 128");
-//     return generatePassword()
-//   }
-//   return numberOfChars
-// }
-
-// validate user selected at least one of the availbale options
-// if user selected isSpecial or isCapital or isLower or isNum then continue
-// else alert user "none selected" and return to main function call
-
-
-
-
-
-
-
-
-// Assignment Code
-var isCapitol = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" 
-var isLowercase = "abcdefghijklmnopqrstuvwxyz"
-var isNumeric = "0123456789"
-var specialChar = "!@#$%^&*()"
-
-var generateBtn = document.querySelector("#generate");
-
-
-// Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -59,5 +8,51 @@ function writePassword() {
 
 }
 
+  var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var lowerChars = "abcdefghijklmnopqrstuvwxyz";
+  var numberChars = "0123456789";
+  var passwordLength = "12-128"
+  var specialChars = "!@#$%^&*()";
+  var selectedChars = "";
+
+  function generatePassword() {
+    var password="";
+    passwordLength = prompt("Please enter the number of characters you want in your password. It must be more than 12 and less than 128.")
+    if(+passwordLength<12 || +passwordLength > 128){
+      alert("You must select a number between 12 and 128");
+      return;
+  }
+    upperChars = confirm("Do you want uppercases in your password?");
+    lowerChars = confirm("Do you want lowercases in your password?");
+    numberChars = confirm("Do you want numbers in your password?");
+    specialChars = confirm("Do you want special characters in your password?");
+
+    if(upperChars){
+      selectedChars+=upperChars
+    }
+
+    if(lowerChars){
+      selectedChars+=lowerChars
+    }
+
+    if(numberChars){
+      selectedChars+=numberChars
+    }
+
+  
+    if(specialChars){
+      selectedChars+=specialChars
+    }
+
+    //Math.floor(Math.random()*passwordLength)
+
+    for(i=0;i<passwordLength;i++){
+      selectedChars[Math.floor(Math.random()*passwordLength)]
+    }
+
+    return password
+}
+
+ 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
