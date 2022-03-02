@@ -7,5 +7,5 @@ https://ethanp94.github.io/password.genie/
 
 https://github.com/EthanP94/password.genie/settings/pages
 
-![](./assets/images/Password.Genie.1)
-![](./assets/images/Password.Genie.2)
+![](./assets/images/password-genie-1.png)
+![](./assets/images/password-genie-2.png)
